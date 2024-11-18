@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Dita Annisa Diningtyas | Kelas Front End | Hari 17 -->
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+  <title>Web SemanticUI</title>
+    
+  <!-- Semantic UI CSS on Cloudflare -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
+
+  <style type="text/css">
+    .hidden.menu {
+      display: none;
+    }
+
+    /* Masthead Hero section */
+    .masthead.segment {
+      min-height: 700px;
+      padding: 1em 0em;
+    }
+    .masthead .logo.item img {
+      margin-right: 1em;
+    }
+    .masthead .ui.menu .ui.button {
+      margin-left: 0.5em;
+    }
+    .masthead h1.ui.header {
+      margin-top: 3em;
+      margin-bottom: 0em;
+      font-size: 4em;
+      font-weight: normal;
+    }
+    .masthead h2 {
+      font-size: 1.7em;
+      font-weight: normal;
+    }
+
+    /* Vertical Navbar section */
+    .ui.vertical.stripe {
+      padding: 8em 0em;
+    }
+    .ui.vertical.stripe h3 {
+      font-size: 2em;
+    }
+    .ui.vertical.stripe .button + h3,
+    .ui.vertical.stripe p + h3 {
+      margin-top: 3em;
+    }
+    .ui.vertical.stripe .floated.image {
+      clear: both;
+    }
+    .ui.vertical.stripe p {
+      font-size: 1.33em;
+    }
+    .ui.vertical.stripe .horizontal.divider {
+      margin: 3em 0em;
+    }
+
+    .secondary.pointing.menu .toc.item {
+      display: none;
+    }
+
+    @media only screen and (min-width: 700px) {
+      .ui.vertical.sidebar.menu {
+        display: none !important;
+      }
+    }
+
+    @media only screen and (max-width: 700px) {
+      .ui.fixed.menu {
+        display: none !important;
+      }
+      .secondary.pointing.menu .item,
+      .secondary.pointing.menu .menu {
+        display: none;
+      }
+      .secondary.pointing.menu .toc.item {
+        display: block;
+      }
+      .masthead.segment {
+        min-height: 350px;
+      }
+      .masthead h1.ui.header {
+        font-size: 2em;
+        margin-top: 1.5em;
+      }
+      .masthead h2 {
+        margin-top: 0.5em;
+        font-size: 1.5em;
+      }
+    }
+
+    /* Gallery section */
+    .ui.segment img {
+      width: 100%; 
+      height: auto;
+      aspect-ratio: 16 / 9; 
+      object-fit: cover; 
+    }
+
+    /*services section */
+    .services-section {
+      padding-left: 2em;
+      padding-right: 2em;
+    }
+
+    /* Hover effect for buttons */
+    .ui.button:hover {
+      background-color: #ff6f61 !important;
+      color: white;
+    }
+
+    /* Review Cards with consistent shadow and hover effect */
+    .ui.card {
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      transition: box-shadow 0.3s ease;
+    }
+
+    .ui.card:hover {
+      box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+    }
+
+    /* Reviews Section Enhancements */
+    .ui.card {
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+    border-radius: 10px;
+    padding: 20px;
+    }
+
+    .ui.card:hover {
+    box-shadow: 0 8px 16px rgba(0,0,0,0.25);
+    transform: translateY(-5px);
+    }
+
+    .ui.card .content {
+    padding-bottom: 10px;
+    }
+
+    .ui.card .header {
+    font-size: 1.25em;
+    font-weight: bold;
+    }
+
+    .ui.card .meta {
+    font-size: 0.9em;
+    color: #888;
+    }
+
+    .ui.card .description {
+    font-size: 1.1em;
+    margin-top: 10px;
+    color: #333;
+    }
+
+    .ui.star.rating {
+    color: #ffcc00;
+    margin-top: 5px;
+    }
+
+    /* Circular Profile Images */
+    .ui.small.circular.image img {
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    margin-right: 15px;
+    }
+  </style>
+</head>
+
+<body>
+<!-- Sidebar Vertikal -->
+<div class="ui vertical inverted sidebar menu">
+  <a class="active item">Home</a>
+  <a class="item">Work</a>
+  <a class="item">About Us</a>
+  <a class="item">Gallery</a>
+  <a class="item">Services</a>
+  <a class="item">Appointment</a>
+  <a class="item">Reviews</a>
+  <a class="item">Contacts</a>
+  <!-- Search Form in Sidebar -->
+  <div class="item">
+    <div class="ui icon input">
+      <input type="text" placeholder="Search...">
+      <i class="search icon"></i>
+    </div>
+  </div>
+</div>
+      
+<!-- Main Navbar -->
+<div class="pusher">
+  <div class="ui inverted vertical masthead center aligned segment">
+
+    <div class="ui container">
+      <div class="ui large secondary inverted pointing menu">
+        <a class="toc item">
+          <i class="sidebar icon"></i>
+        </a>
+        <a class="active item">Home</a>
+        <a class="item">About Us</a>
+        <a class="item">Gallery</a>
+        <a class="item">Services</a>
+        <a class="item">Appointment</a>
+        <a class="item">Reviews</a>
+        <a class="item">Contacts</a>        
+        <div class="right item">
+          <div class="item">
+            <div class="ui icon input">
+              <input type="text" placeholder="Search...">
+              <i class="search icon"></i>
+            </div>
+          </div>
+          <a class="ui inverted button">Log in</a>
+          <a class="ui inverted button">Sign Up</a>
+        </div>
+      </div>
+    </div>
+
+    <!--Hero-->
+    <div class="ui text container">
+      <h1 class="ui inverted header">Paws Pet Care Clinic</h1>
+      <h2>Providing the Best Care for Your Pets!</h2>
+    </div>
+</div>
+
+<!--About Us-->
+<div class="ui vertical stripe segment">
+  <div class="ui middle aligned stackable grid container">
+    <div class="row">
+      <div class="six wide centered floated column">
+        <img src="https://rarebreedvet.com/wp-content/uploads/2022/02/1319_PardoPhoto-JD_LEsm-980x653.jpg" class="ui large bordered rounded image">
+      </div>
+      <div class="eight wide column">
+        <h3 class="ui header">About Us</h3>
+        <p>
+          Paws Pet Care Clinic is dedicated to providing compassionate, high-quality care for all pets, treating them like family. Our experienced team offers a wide range of services, from routine check-ups to specialized treatments, in a state-of-the-art facility. With a focus on ensuring the health and happiness of your pets, we strive to offer not only expert medical care but also peace of mind for pet owners. At Paws Pet Care Clinic, we are committed to "Providing the Best Care for Your Pets!" every step of the way.
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Gallery Section -->
+<div class="ui vertical stripe segment">
+  <div class="ui container">
+    <h3 class="ui header">Gallery</h3>
+    <!-- Updated grid class for better responsiveness -->
+    <div class="ui stackable doubling two column grid">
+      <!-- Row 1 -->
+      <div class="column">
+        <div class="ui segment" style="border: none; box-shadow: none;">
+          <img src="https://images.ctfassets.net/rt5zmd3ipxai/NFajLhckzn6Yv56FvdIB7/c85625133ca5fc69b48cd85d4d6a6e3d/NVA_Var-C_HERO_Brookswood.jpg?fit=fill&fm=webp&h=567&w=816&q=75" alt="Pet Wellness Check">
+        </div>
+      </div>
+      <div class="column">
+        <div class="ui segment" style="border: none; box-shadow: none;">
+          <img src="https://images.destpet.com/is/image/destpet/tcc-boarding-kennel?ts=1714038523561&dpr=off" class="ui fluid image" alt="Pet Hotel">
+        </div>
+      </div>
+      <!-- Row 2 -->
+      <div class="column">
+        <div class="ui segment" style="border: none; box-shadow: none;">
+          <img src="https://thebrunswickvetclinic.com/wp-content/uploads/2023/04/Lobby-1-scaled.jpg" class="ui fluid image" alt="Clinic Lobby">
+        </div>
+      </div>
+      <div class="column">
+        <div class="ui segment" style="border: none; box-shadow: none;">
+          <img src="https://thebrunswickvetclinic.com/wp-content/uploads/2023/04/Pharmacy-1-scaled.jpg" class="ui fluid image" alt="Pharmacy">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- Services Section -->
+<div class="ui vertical stripe segment">
+  <div class="ui container">
+    <h3 class="ui header">Our Services</h3>
+    <div class="ui divided items">
+      
+      <div class="item">
+        <div class="image">
+          <img src="https://thebrunswickvetclinic.com/wp-content/uploads/2023/04/In-House-Lab-scaled.jpg" alt="Pet Diagnostics">
+        </div>
+        <div class="content">
+          <a class="header">Pet Diagnostics</a>
+          <div class="meta">
+            <span class="service-category">Advanced diagnostic tools and imaging.</span>
+          </div>
+          <div class="description">
+            <p>We provide accurate and efficient diagnostic services, including lab testing and imaging.</p>
+          </div>
+          <div class="extra">
+            <div class="ui label">State-of-the-Art Technology</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="item">
+        <div class="image">
+          <img src="https://thebrunswickvetclinic.com/wp-content/uploads/2023/04/Exam-Room-1-scaled.jpg" alt="Pet Wellness">
+        </div>
+        <div class="content">
+          <a class="header">Pet Wellness</a>
+          <div class="meta">
+            <span class="service-category">Complete health check-ups.</span>
+          </div>
+          <div class="description">
+            <p>Routine wellness exams, vaccinations, and health screenings to keep your pet in top condition.</p>
+          </div>
+          <div class="extra">
+            <div class="ui label">Comprehensive Care</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="item">
+        <div class="image">
+          <img src="https://thebrunswickvetclinic.com/wp-content/uploads/2023/04/Dental-Suite-scaled.jpg" alt="Pet Dental">
+        </div>
+        <div class="content">
+          <a class="header">Pet Dental</a>
+          <div class="meta">
+            <span class="service-category">Advanced dental care for pets.</span>
+          </div>
+          <div class="description">
+            <p>Our dental services include cleanings, extractions, and preventive care to keep your pet’s mouth healthy.</p>
+          </div>
+          <div class="extra">
+            <div class="ui label">Dental Experts</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="item">
+        <div class="image">
+          <img src="https://thebrunswickvetclinic.com/wp-content/uploads/2023/04/Radiology-scaled.jpg" alt="Pet Surgery">
+        </div>
+        <div class="content">
+          <a class="header">Pet Surgery</a>
+          <div class="meta">
+            <span class="service-category">Safe and compassionate surgical procedures.</span>
+          </div>
+          <div class="description">
+            <p>Our clinic provides a full range of surgical services, from routine spaying and neutering to complex surgeries.</p>
+          </div>
+          <div class="extra">
+            <div class="ui label">Board-Certified Surgeons</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- Appointment Booking Section -->
+<div class="ui vertical stripe segment">
+  <div class="ui container">
+    <h3 class="ui header">Book an Appointment for Your Pet</h3>
+    <p>Please fill in the details below to schedule an appointment.</p>
+  
+    <form class="ui form" method="post" action="/submit-appointment" id="appointment-form">
+      <div class="field">
+        <label for="owner-name">Full Name</label>
+        <input type="text" id="owner-name" name="owner-name" placeholder="Full Name" required>
+      </div>
+      <div class="field">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" placeholder="Your Email Address" required>
+      </div>
+      <div class="field">
+        <label for="phone-number">Phone Number</label>
+        <input type="tel" id="phone-number" name="phone-number" placeholder="Your Phone Number" required pattern="^\+?[0-9]{1,4}?[-.\s\(\)]?(\d{1,3})[-.\s\)]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,4}$">
+      </div>
+      <div class="field">
+        <label for="pet-name">Pet's Name</label>
+        <input type="text" id="pet-name" name="pet-name" placeholder="Your Pet's Name" required>
+      </div>
+      <div class="field">
+        <label for="pet-type">Type of Pet</label>
+        <select class="ui dropdown" id="pet-type" name="pet-type" required>
+          <option value="">Select Pet Type</option>
+          <option value="dog">Dog</option>
+          <option value="cat">Cat</option>
+          <option value="bird">Bird</option>
+          <option value="rabbit">Rabbit</option>
+          <option value="other">Other</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="service-type">Type of Service</label>
+        <select class="ui dropdown" id="service-type" name="service-type" required>
+          <option value="">Select Service</option>
+          <option value="wellness">Pet Wellness</option>
+          <option value="diagnostics">Pet Diagnostics</option>
+          <option value="dental">Pet Dental</option>
+          <option value="surgery">Pet Surgery</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="appointment-date">Preferred Date</label>
+        <input type="date" id="appointment-date" name="appointment-date" required>
+      </div>
+      <div class="field">
+        <label for="notes">Additional Notes</label>
+        <textarea id="notes" name="notes" placeholder="Any special requests or additional information"></textarea>
+      </div>
+      <button class="ui primary button" type="submit">Book Appointment</button>
+    </form>
+  </div>
+</div>
+
+<!-- Success/Failure Messages -->
+<div id="appointment-message" class="ui hidden message"></div>
+
+
+<!-- Reviews Section -->
+<div class="ui vertical stripe segment">
+    <div class="ui container">
+        <h3 class="ui header">What Our Clients Say</h3>
+        <div class="ui stackable three column grid">
+    
+            <div class="column">
+            <div class="ui card">
+                <div class="content">
+                <div class="header">Alex Johnson</div>
+                <div class="meta">Pet Owner</div>
+                <div class="description">
+                    "Amazing service! The staff at Paws Pet Care Clinic treated my dog with so much care and attention. Highly recommended!"
+                </div>
+                </div>
+                <div class="extra content">
+                <div class="ui star rating" data-rating="5" data-max-rating="5"></div>
+                </div>
+            </div>
+            </div>
+    
+            <div class="column">
+            <div class="ui card">
+                <div class="content">
+                <div class="header">Sarah Williams</div>
+                <div class="meta">Pet Owner</div>
+                <div class="description">
+                    "Very professional and knowledgeable team. They made my cat's check-up easy and stress-free."
+                </div>
+                </div>
+                <div class="extra content">
+                <div class="ui star rating" data-rating="4" data-max-rating="5"></div>
+                </div>
+            </div>
+            </div>
+    
+            <div class="column">
+            <div class="ui card">
+                <div class="content">
+                <div class="header">Michael Brown</div>
+                <div class="meta">Pet Owner</div>
+                <div class="description">
+                    "Excellent facility with a caring team. My rabbit's surgery went smoothly, and the follow-up care was fantastic!"
+                </div>
+                </div>
+                <div class="extra content">
+                <div class="ui star rating" data-rating="5" data-max-rating="5"></div>
+                </div>
+            </div>
+            </div>
+            
+        </div>
+    </div>
+</div>  
+  
+
+<!-- Footer Section -->
+<div class="ui inverted vertical footer segment">
+    <div class="ui container">
+      <div class="ui stackable inverted divided grid">
+        
+        <!-- Location and Hours Section -->
+        <div class="five wide column">
+          <h4 class="ui inverted header">Location</h4>
+          <p>123 Pet Street, Animal City, PA 12345</p>
+  
+          <h4 class="ui inverted header">Operating Hours</h4>
+          <p>Monday - Friday: 9 AM - 6 PM<br>Saturday: 10 AM - 4 PM<br>Sunday: Closed</p>
+        </div>
+  
+        <!-- Social Media Links Section -->
+        <div class="five wide column">
+          <h4 class="ui inverted header">Follow Us On</h4>
+          <div class="ui inverted link list">
+            <a href="https://instagram.com/PawsPetCareClinic" target="_blank" class="item">
+              <i class="instagram icon"></i> Instagram: @PawsPetCare.Insta
+            </a>
+            <a href="https://facebook.com/PawsPetCareClinic" target="_blank" class="item">
+              <i class="facebook icon"></i> Facebook: PawsPetCareClinic Official
+            </a>
+            <a href="https://twitter.com/PawsPetCareClinic" target="_blank" class="item">
+              <i class="twitter icon"></i> Twitter: @PawsPetCareClinic
+            </a>
+            <a href="https://youtube.com/PawsPetCareClinic" target="_blank" class="item">
+              <i class="youtube icon"></i> YouTube: @PawsPetCareClinic
+            </a>
+          </div>
+        </div>
+  
+        <!-- Contact Section -->
+        <div class="five wide column">
+          <h4 class="ui inverted header">Contact Us</h4>
+          <p>Phone: <a href="tel:+11234567890" class="ui inverted link">+62 *** *** ***</a></p>
+          <p>Email: <a href="mailto:info@pawspetclinic.com" class="ui inverted link">info@pawspetclinic.com</a></p>
+          <p>©2024 Paws Pet Care Clinic. All rights reserved.</p>
+        </div>
+      </div>
+    </div>
+  
+    <!-- Footer Background and Styling Enhancement -->
+    <div class="ui inverted divider"></div>
+    <div class="ui container">
+      <div class="ui horizontal inverted small divided link list">
+        <a href="#" class="item">Privacy Policy</a>
+        <a href="#" class="item">Terms of Service</a>
+      </div>
+    </div>
+  </div>
+  
+<script>
+  $(document).ready(function() {
+    /* Show fixed menu on scroll */
+    $('.masthead')
+      .visibility({
+        once: false,
+        onBottomPassed: function() {
+          $('.fixed.menu').transition('fade in');
+        },
+        onBottomPassedReverse: function() {
+          $('.fixed.menu').transition('fade out');
+        }
+      });
+
+    /* Toggle Sidebar */
+    $('.toc.item')
+      .click(function() {
+        $('.ui.vertical.sidebar.menu').toggleClass('visible');
+      });
+
+    /* Appointment Form Validation */
+    $('#appointment-form')
+      .form({
+        fields: {
+          'owner-name': 'empty',
+          'email': 'empty',
+          'phone-number': 'empty',
+          'pet-name': 'empty',
+          'pet-type': 'empty',
+          'service-type': 'empty',
+          'appointment-date': 'empty'
+        }
+      });
+
+    /* Handle appointment form submission */
+    $('#appointment-form').on('submit', function(event) {
+      event.preventDefault();
+      const form = $(this);
+
+      if (form.form('is valid')) {
+        $('#appointment-message').removeClass('hidden').addClass('success').text('Your appointment has been successfully booked!');
+        form[0].reset(); 
+      } else {
+        $('#appointment-message').removeClass('hidden').addClass('error').text('Please fill out all required fields.');
+      }
+    });
+  });
+</script>
+
+<!-- jQuery library and Semantic UI JS on Cloudflare -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js"></script>
+</body>
+</html>
